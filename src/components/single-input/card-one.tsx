@@ -1,7 +1,14 @@
 const imageUrl = new URL('../../assets/logo.png', import.meta.url).href;
+import { useEffect, useState } from 'react';
 import { SingleInputVisualProps } from '../types';
 
 export function CardOne({ data, settings }: SingleInputVisualProps) {
+  const [name, setName] = useState('');
+  useEffect(() => {
+    console.log('I am inside useEffect', name);
+    setName('hook test');
+  }, [name]);
+
   // render a table
   const renderData = () => {
     if (!data) return null;
